@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { newGame, makeGuess } from '../actions/games'
+import { newGame } from '../actions/games'
 import GamePage from './GamePage'
 import * as gameFunctions from '../lib/game'
 

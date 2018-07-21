@@ -1,7 +1,6 @@
 import * as React from 'react'
-// import { Link } from 'react-router-dom'
-import * as gameFunctions from '../lib/game'
-import { newGame, makeGuess } from '../actions/games'
+// import * as gameFunctions from '../lib/game'
+import { makeGuess } from '../actions/games'
 import { connect } from 'react-redux'
 
 class GamePage extends React.PureComponent {
@@ -12,7 +11,7 @@ class GamePage extends React.PureComponent {
     const value = event.target.value;
     this.defaultValue = value;
     this.setState({
-      name: value
+      name: value.toLowerCase()
     })
   }
   handleSubmit = (event) => {
