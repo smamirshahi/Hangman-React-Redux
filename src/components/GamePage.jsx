@@ -1,46 +1,42 @@
 import * as React from 'react'
-// import * as gameFunctions from '../lib/game'
-import { makeGuess } from '../actions/games'
+import { newGame, makeGuess } from '../actions/games'
 import { connect } from 'react-redux'
 
 class GamePage extends React.PureComponent {
-
   defaultValue = ''
 
   handleChange = (event) => {
     const value = event.target.value;
     this.defaultValue = value;
     this.setState({
-      name: value.toLowerCase()
+      letter: value.toLowerCase()
     })
   }
+
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.makeGuess(this.state.name)
+    this.props.makeGuess(this.state.letter)
     this.defaultValue = ''
-    // console.log(this.props.newWord)
-    // console.log(this.state.name)
-    // console.log(this.props.showGuess(this.props.newWord, this.state.name))
   }
 
   render() {
-    var text = ''
+    let text = ''
     if (this.props.wrongGuessLimit(this.props.newWord, this.props.newLetter)) {
-      text = 'The Game is finished. You lost'
+      text = 'The Game is finished. You LOST!'
     }
     if (this.props.isWinner(this.props.newWord, this.props.newLetter)) {
-      text = 'The Game is finished. You won'
+      text = 'The Game is finished. You WON!'
     }
 
     return (<div>
-      <h1>Game Page Component is loaded </h1>
-      <h1>{this.props.newWord}</h1>
+      <h1>Type a letter in the field. You can make six mistakes</h1>
+      <h1> The word has {this.props.newWord.length} letters </h1>
       <h1>{this.props.showGuess(this.props.newWord, this.props.newLetter)}</h1>
 
       <form onSubmit={this.handleSubmit}>
         <label>
           Letter:
-          <input type="text" name="letter" onChange={this.handleChange} maxLength="1" value = {this.defaultValue} />
+          <input type="text" name="letter" onChange={this.handleChange} maxLength="1" value={this.defaultValue} />
         </label>
         <input type="submit" value="Submit" />
       </form>
@@ -49,18 +45,14 @@ class GamePage extends React.PureComponent {
       <h1>{text}</h1>
 
       <p><button>New Game</button></p>
-      
-      
-
     </div>)
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-      newLetter: state.newLetter
+    newLetter: state.newLetter
   }
 }
 
-export default connect(mapStateToProps, { makeGuess })(GamePage)
-
+export default connect(mapStateToProps, { newGame, makeGuess })(GamePage)
