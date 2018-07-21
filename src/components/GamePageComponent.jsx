@@ -12,6 +12,7 @@ class GamePageComponent extends React.PureComponent {
 
     componentDidMount() {
         this.props.newGame(gameFunctions.randomWord())
+        this.render()
     }
 
     render() {
