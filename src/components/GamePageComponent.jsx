@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-// import { addAlbum, getAlbums } from '../actions/albums'
+import { newGame, makeGuess } from '../actions/games'
 import GamePage from './GamePage'
 import * as gameFunctions from '../lib/game'
 
@@ -8,28 +8,37 @@ import * as gameFunctions from '../lib/game'
 //     resolve => setTimeout(() => resolve(`I waited for ${time} ms`), time)
 // )
 
-export default class GamePageComponent extends React.PureComponent {
+class GamePageComponent extends React.PureComponent {
 
-    // componentDidMount() {
-
-    // }
+    componentDidMount() {
+        this.props.newGame(gameFunctions.randomWord())
+    }
 
     render() {
-        return (<div>
-            {console.log(gameFunctions.randomWord())}
-            </div>
-        )
+        if (!this.props.newWord) return 'Loading...'
+        
+        return <GamePage newWord = {this.props.newWord}/>
+    }
 
-        // if (!this.props.albums) return 'Loading...'
-        // return <GamePage albums={this.props.albums} />
+
+
+    // return (<div> {         
+    //     this.props.newGame(gameFunctions.randomWord())
+    //     }
+    //     </div>
+    // )
+
+    // if (!this.props.albums) return 'Loading...'
+    // return 
+    // return <GamePage albums={this.props.albums} />
+}
+
+const mapStateToProps = (state) => {
+    return {
+        newWord: state.newWord,
+        newLetter: state.newLetter
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         albums: state.albums
-//     }
-// }
-
-// export default connect(mapStateToProps, { addAlbum, getAlbums })(GamePageComponent)
+export default connect(mapStateToProps, { newGame })(GamePageComponent)
 // export default connect(mapStateToProps)(GamePageComponent)

@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-import games from './games'
+import newWord from './newWord'
+import newLetter from './newLetter'
 
 export default combineReducers({
-   games,
-//   photos
+   newWord,
+   newLetter
 })
