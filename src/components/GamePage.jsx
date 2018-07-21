@@ -25,6 +25,14 @@ class GamePage extends React.PureComponent {
   }
 
   render() {
+    var text = ''
+    if (this.props.wrongGuessLimit(this.props.newWord, this.props.newLetter)) {
+      text = 'The Game is finished. You lost'
+    }
+    if (this.props.isWinner(this.props.newWord, this.props.newLetter)) {
+      text = 'The Game is finished. You won'
+    }
+
     return (<div>
       <h1>Game Page Component is loaded </h1>
       <h1>{this.props.newWord}</h1>
@@ -37,6 +45,14 @@ class GamePage extends React.PureComponent {
         </label>
         <input type="submit" value="Submit" />
       </form>
+
+      <h1>You have guessed {this.props.wrongGuessCount(this.props.newWord, this.props.newLetter)} wrong letters</h1>
+      <h1>{text}</h1>
+
+      <p><button>New Game</button></p>
+      
+      
+
     </div>)
   }
 }

@@ -17,7 +17,9 @@ class GamePageComponent extends React.PureComponent {
 
     render() {
         if (this.props.newWord.length === 0) return 'Loading...'
-        return <GamePage newWord = {this.props.newWord} showGuess = {gameFunctions.showGuess}/>
+        return <GamePage newWord = {this.props.newWord} showGuess = {gameFunctions.showGuess} 
+        wrongGuessCount = {gameFunctions.wrongGuessCount} wrongGuessLimit = {gameFunctions.wrongGuessLimit}
+        isWinner = {gameFunctions.isWinner} gameFinished = {gameFunctions.gameFinished} />
     }
 
 
