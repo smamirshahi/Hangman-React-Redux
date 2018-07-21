@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
-import albums from './albums'
-// import photos from './photos'
+import games from './games'
 
 export default combineReducers({
-   albums,
+   games,
 //   photos
 })

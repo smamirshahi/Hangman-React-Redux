@@ -16,7 +16,7 @@ class App extends Component {
         </header>
         <main>
           <Route exact path="/" component={FirstPageComponent} />
-          {/* <Route exact path="/hangman" component={GamePageComponent} /> */}
+          <Route exact path="/hangman" component={GamePageComponent} />
         </main>
       </div>
     );

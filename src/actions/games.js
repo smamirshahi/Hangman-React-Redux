@@ -1,10 +1,20 @@
-export const SET_PHOTOS = 'SET_PHOTOS'
+export const NEW_GAME = 'NEW_GAME'
+export const MAKE_GUESS = 'MAKE_GUESS'
 
-export function setPhotos(photos) {
+export function newGame(word) {
   return {
-    type: SET_PHOTOS,
+    type: NEW_GAME,
     payload: [
-      photos
+      word
+    ]
+  }
+}
+
+export function makeGuess(letter) {
+  return {
+    type: MAKE_GUESS,
+    payload: [
+      letter
     ]
   }
 }
