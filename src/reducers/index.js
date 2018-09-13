@@ -3,6 +3,6 @@ import newWord from './newWord'
 import newLetter from './newLetter'
 
 export default combineReducers({
-    newWord,
+    newWord, // this is equal to newWord: newWord
     newLetter
 })
