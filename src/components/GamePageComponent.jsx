@@ -20,7 +20,7 @@ class GamePageComponent extends React.PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        newWord: state.newWord,
+        newWord: state.newWord, // for the first time this is equal to the initial state defined in ./reducers/newWord
         newLetter: state.newLetter
     }
 }
