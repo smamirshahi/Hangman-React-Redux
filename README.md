@@ -1,14 +1,9 @@
-# Hangman
+# The Hangman Game
 
 ## Overview
-Implementing the Hangman game. 
+This app is a practice to implement the hangman game using React-Redux app. It is written only in the front-end. There are no codes for databases or back-end server
 
-## Front-end
-  the app so far is only written in the front-end with React.
-
-#### To do:
-  - Create a hangman sequence image
-  - add database
-  - connect the app to the back-end
+## To do :eyes::
+  - Create a hangman sequence image 
 
 
